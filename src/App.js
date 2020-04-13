@@ -8,9 +8,8 @@ import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
 
-
+const {REACT_APP_HEROKU_URL} = process.env;
 
 
 
@@ -107,7 +106,7 @@ class App extends Component {
   
   onPictureSubmit = ()=> {
     this.setState({imageUrl: this.state.input})
-    fetch('http://localhost:3001/image', {
+    fetch(`${REACT_APP_HEROKU_URL}/imageurl`, {
       method: 'put',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({
@@ -117,7 +116,7 @@ class App extends Component {
     .then(response => response.json())
     .then(response => {
       if(response) {
-        fetch('http://localhost:3001/image', {
+        fetch(`${REACT_APP_HEROKU_URL}/image`, {
           method: 'put',
           headers: {'content-type': 'application/json'},
           body: JSON.stringify({
