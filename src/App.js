@@ -107,7 +107,8 @@ class App extends Component {
   onPictureSubmit = ()=> {
     this.setState({imageUrl: this.state.input})
     fetch(`${REACT_APP_HEROKU_URL}/imageurl`, {
-      method: 'put',
+    // fetch(`https://still-basin-97800.herokuapp.com/imageurl`, {
+      method: 'post',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({
         input: this.state.input
@@ -117,6 +118,7 @@ class App extends Component {
     .then(response => {
       if(response) {
         fetch(`${REACT_APP_HEROKU_URL}/image`, {
+        // fetch(`https://still-basin-97800.herokuapp.com/image`, {
           method: 'put',
           headers: {'content-type': 'application/json'},
           body: JSON.stringify({
