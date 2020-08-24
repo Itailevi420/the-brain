@@ -30,8 +30,8 @@ jobs:
       run: npm install
     - name: Run development server
       run: npm start &
- #   - name: Run cypress headless  
-        
+    - name: Run cypress headless  
+      run: cypress run  
         
     # Runs a single command using the runners shell
    # - name: Cypress.io
