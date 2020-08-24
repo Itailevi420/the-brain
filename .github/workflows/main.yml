@@ -6,41 +6,38 @@ name: cypress testing
 # events but only for the master branch
 on:
   push:
-    branches: 
-    - master 
+    branches:
+      - master
   pull_request:
-    branches: 
-    - master
+    branches:
+      - master
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
   my_test:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 12
-    - name: Install Dependencies
-      run: npm install
-    - name: Run development server
-      run: npm start &
-    - name: Run cypress headless  
-  # You may pin to the exact commit or the version.
-  # uses: cypress-io/github-action@8aac1d019734a107e4eaaefe2e26beb3149e5540
-      uses: cypress-io/github-action@v1.16.1
-      with:
-      # Sends test results to Cypress Dashboard
-        record: 4bdb4071-0442-421f-bda4-fc5f8521aa76
-
-        
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install Dependencies
+        run: npm install
+      - name: Run development server
+        run: npm start &
+      - name: Run cypress headless
+        # You may pin to the exact commit or the version.
+        # uses: cypress-io/github-action@8aac1d019734a107e4eaaefe2e26beb3149e5540
+        uses: cypress-io/github-action@v1.16.1
+        with:
+          # Sends test results to Cypress Dashboard
+          record: fcec1e7a-dfb8-4bcd-b78d-aa0ca581d66b
     # Runs a single command using the runners shell
-   # - name: Cypress.io
+    # - name: Cypress.io
   # You may pin to the exact commit or the version.
   # uses: cypress-io/github-action@8aac1d019734a107e4eaaefe2e26beb3149e5540
-    #  uses: cypress-io/github-action@v1.16.1
+  #  uses: cypress-io/github-action@v1.16.1
