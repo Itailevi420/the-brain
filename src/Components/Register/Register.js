@@ -36,6 +36,7 @@ class Register extends React.Component {
       }
     */
     fetch(`${process.env.REACT_APP_HEROKU_URL}/register`, {
+    // fetch(`https://still-basin-97800.herokuapp.com/register`, {
       method: 'post',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({
