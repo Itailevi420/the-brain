@@ -31,7 +31,13 @@ jobs:
     - name: Run development server
       run: npm start &
     - name: Run cypress headless  
-      run: cypress run  
+  # You may pin to the exact commit or the version.
+  # uses: cypress-io/github-action@8aac1d019734a107e4eaaefe2e26beb3149e5540
+      uses: cypress-io/github-action@v1.16.1
+      with:
+      # Sends test results to Cypress Dashboard
+        record: 4bdb4071-0442-421f-bda4-fc5f8521aa76
+
         
     # Runs a single command using the runners shell
    # - name: Cypress.io
